@@ -12,6 +12,7 @@ import br.com.treinaweb.twprojetos.entidades.Funcionario;
 import br.com.treinaweb.twprojetos.enums.UF;
 import br.com.treinaweb.twprojetos.repositorios.CargoRepositorio;
 import br.com.treinaweb.twprojetos.repositorios.FuncionarioRepositorio;
+import br.com.treinaweb.twprojetos.utils.SenhaUtils;
 
 @Controller
 @RequestMapping("/funcionarios")
@@ -63,8 +64,21 @@ public class FuncionarioControle {
         return modelAndView;
     }
 
-    @PostMapping({"/cadastrar", "/{id}/editar"})
-    public String salvar(Funcionario funcionario) {
+    @PostMapping("/cadastrar")
+    public String cadastrar(Funcionario funcionario) {
+        String senhaEncriptada = SenhaUtils.encode(funcionario.getSenha());
+
+        funcionario.setSenha(senhaEncriptada);
+        funcionarioRepositorio.save(funcionario);
+
+        return "redirect:/funcionarios";
+    }
+
+    @PostMapping("/{id}/editar")
+    public String editar(Funcionario funcionario, @PathVariable Long id) {
+        String senhaAtual = funcionarioRepositorio.getOne(id).getSenha();
+        funcionario.setSenha(senhaAtual);
+
         funcionarioRepositorio.save(funcionario);
 
         return "redirect:/funcionarios";
