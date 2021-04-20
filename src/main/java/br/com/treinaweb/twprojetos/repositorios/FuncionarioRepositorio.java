@@ -1,6 +1,7 @@
 package br.com.treinaweb.twprojetos.repositorios;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -22,5 +23,7 @@ public interface FuncionarioRepositorio extends JpaRepository<Funcionario, Long>
     List<Funcionario> findByCargoNome(String cargoNome);
 
     List<Funcionario> findByCargoNomeNot(String cargoNome);
+
+    Optional<Funcionario> findByEmail(String email);
     
 }
