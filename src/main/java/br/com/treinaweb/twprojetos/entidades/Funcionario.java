@@ -24,7 +24,7 @@ public class Funcionario extends Pessoa {
     @DateTimeFormat(iso = ISO.DATE)
     private LocalDate dataDemissao;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cargo_id_fk", nullable = false)
     private Cargo cargo;
 
