@@ -44,8 +44,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        // TODO Auto-generated method stub
-        return true;
+        return funcionario.getDataDemissao() == null;
     }
 
     @Override
