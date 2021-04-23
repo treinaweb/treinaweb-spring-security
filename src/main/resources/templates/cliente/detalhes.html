@@ -32,12 +32,14 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> CPF</strong>
-                <p class="text-muted" th:text="${cliente.cpf}">
-                  484.325.821-07
-                </p>
-
-                <hr>
+                <div sec:authorize="hasAuthority('ADMIN')">
+                  <strong><i class="fas fa-book mr-1"></i> CPF</strong>
+                  <p class="text-muted" th:text="${cliente.cpf}">
+                    484.325.821-07
+                  </p>
+  
+                  <hr>
+                </div>
 
                 <strong><i class="fas fa-mobile mr-1"></i> Telefone</strong>
                 <p class="text-muted" th:text="${cliente.telefone}">(82) 98881-5053</p>
@@ -49,15 +51,17 @@
 
                 <hr>
 
-                <strong><i class="fas fa-calendar-alt mr-1"></i> Data de Nascimento</strong>
-                <p class="text-muted" th:text="${#temporals.format(cliente.dataNascimento)}">
-                  30 de maio de 1981
-                </p>
-
-                <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Endereço</strong>
-                <p class="text-muted" th:text="${cliente.endereco}">Malibu, California</p>
+                <div sec:authorize="hasAuthority('ADMIN')">
+                  <strong><i class="fas fa-calendar-alt mr-1"></i> Data de Nascimento</strong>
+                  <p class="text-muted" th:text="${#temporals.format(cliente.dataNascimento)}">
+                    30 de maio de 1981
+                  </p>
+  
+                  <hr>
+  
+                  <strong><i class="fas fa-map-marker-alt mr-1"></i> Endereço</strong>
+                  <p class="text-muted" th:text="${cliente.endereco}">Malibu, California</p>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>

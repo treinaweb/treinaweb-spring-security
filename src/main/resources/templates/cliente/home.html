@@ -34,10 +34,11 @@
                       <a type="button" data-toggle="popover" data-placement="top" data-content="Detalhes" data-trigger="hover" class="btn btn-primary" th:href="@{/clientes/{id} (id=${cliente.id})}">
                         <i class="fas fa-eye"></i>
                       </a>
-                      <a type="button" data-toggle="popover" data-placement="top" data-content="Editar" data-trigger="hover" class="btn btn-warning" th:href="@{/clientes/{id}/editar (id=${cliente.id})}">
+                      <a sec:authorize="hasAuthority('ADMIN')" type="button" data-toggle="popover" data-placement="top" data-content="Editar" data-trigger="hover" class="btn btn-warning" th:href="@{/clientes/{id}/editar (id=${cliente.id})}">
                         <i class="fas fa-edit"></i>
                       </a>
-                      <a 
+                      <a
+                        sec:authorize="hasAuthority('ADMIN')" 
                         type="button" data-toggle="popover" data-placement="top" 
                         data-content="Remover" data-trigger="hover" class="btn btn-danger" 
                         th:href="@{/clientes/{id}/excluir (id=${cliente.id})}" 

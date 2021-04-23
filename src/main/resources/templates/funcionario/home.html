@@ -43,10 +43,11 @@
                       <a type="button" data-toggle="popover" data-placement="top" data-content="Detalhes" data-trigger="hover" class="btn btn-primary" th:href="@{/funcionarios/{id} (id=${funcionario.id})}">
                         <i class="fas fa-eye"></i>
                       </a>
-                      <a type="button" data-toggle="popover" data-placement="top" data-content="Editar" data-trigger="hover" class="btn btn-warning" th:href="@{/funcionarios/{id}/editar (id=${funcionario.id})}">
+                      <a sec:authorize="hasAuthority('ADMIN')" type="button" data-toggle="popover" data-placement="top" data-content="Editar" data-trigger="hover" class="btn btn-warning" th:href="@{/funcionarios/{id}/editar (id=${funcionario.id})}">
                         <i class="fas fa-edit"></i>
                       </a>
                       <a 
+                        sec:authorize="hasAuthority('ADMIN')"
                         type="button" data-toggle="popover" data-placement="top" 
                         data-content="Remover" data-trigger="hover" class="btn btn-danger" 
                         th:href="@{/funcionarios/{id}/excluir (id=${funcionario.id})}" 

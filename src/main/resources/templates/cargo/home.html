@@ -15,14 +15,14 @@
                 <tr>
                   <th>ID</th>
                   <th>Nome</th>
-                  <th>Ações</th>
+                  <th sec:authorize="hasAuthority('ADMIN')">Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr th:each="cargo : ${cargos}">
                   <td th:text="${cargo.id}">183</td>
                   <td th:text="${cargo.nome}">Desenvolvedor(a) Back End Jr.</td>
-                  <td>
+                  <td sec:authorize="hasAuthority('ADMIN')">
                     <div class="btn-group">
                       <a type="button" data-toggle="popover" data-placement="top" data-content="Editar" data-trigger="hover" class="btn btn-warning" th:href="@{/cargos/{id}/editar (id=${cargo.id})}">
                         <i class="fas fa-edit"></i>
