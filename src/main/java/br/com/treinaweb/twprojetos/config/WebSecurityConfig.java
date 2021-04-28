@@ -41,6 +41,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 new AntPathRequestMatcher("/logout", "GET")
             )
             .logoutSuccessUrl("/login");
+
+        http.rememberMe()
+            .key("chaverememberMe");
     }
 
     @Override
