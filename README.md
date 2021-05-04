@@ -1,4 +1,4 @@
-# TreinaWeb: Curso "Spring - Templates com Thymeleaf"
+# TreinaWeb: Curso "Spring Framework - Spring Security"
 
 #### Lista de commits
 Aula | Video | Commit | Link
